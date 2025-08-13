@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Item' : 'Add New Item' }}</h2>
+<div mat-dialog-content>
+  <form [formGroup]="itemForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Item Name</mat-label>
+      <input matInput formControlName="name" required>
+      <mat-error *ngIf="itemForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" min="0" required>
+      <mat-error *ngIf="itemForm.get('price')?.hasError('required')">
+        Price is required
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('price')?.hasError('min')">
+        Must be positive
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Stock Quantity</mat-label>
+      <input matInput type="number" formControlName="stockQuantity" min="0" required>
+      <mat-error *ngIf="itemForm.get('stockQuantity')?.hasError('required')">
+        Stock is required
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('stockQuantity')?.hasError('min')">
+        Must be positive
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">
+    {{ isEditMode ? 'Update' : 'Create' }}
+  </button>
+</div>

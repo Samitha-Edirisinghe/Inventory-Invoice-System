@@ -1,0 +1,23 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-toolbar {
+  margin-bottom: 20px;
+}
+
+mat-toolbar nav {
+  margin-left: auto;
+}
+
+mat-toolbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+mat-toolbar a:hover {
+  text-decoration: underline;
+}
